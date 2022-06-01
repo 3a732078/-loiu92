@@ -196,8 +196,15 @@ function sumTime(){
 
 
 // 第五題
+function inputTime(){
+    let time = prompt("請輸入時間" , "10:30");
+    TC(time);
+}
 function TC(time){
-    // let time = parseInt(document.getElementById("time").value.substring(0,2));
+    // time = parseInt(document.getElementById("inTime").value.substring(0,2));
+    // document.write(time);
+    time = parseInt(time.substring(0,2));
+
     let count = 0;
     let worker = "";
     employeeType.forEach(item =>{
@@ -225,20 +232,21 @@ function TC(time){
 function tasksD(){
     let day = 0;   
     let now = 10;
-
+    let last = 0;
+    let taskD ;
     tasks.forEach(task => {
-        let taskD = task.duration;
-        last = 0;
+        taskD = task.duration;
+
         while(taskD > 0){
             if(last > 0 ){
                 taskD -= last;   
                 last = 0;
             }
-            taskD -= TC(now) * 60;
-            // console.log(now);
+            taskD -= TC(now.toString(10)) * 60;
             
             if(taskD < 0){
-                last = Math.abs(taskD);
+                last += Math.abs(taskD);
+                // console.log(last);
             }
             now ++;           
             if (now > 23){
@@ -248,7 +256,7 @@ function tasksD(){
         }
 
     });
-    now += last / 60;
+    now += Math.trunc(last / 60);
     last %= 60;
     // console.log(day);
     document.getElementById("answer7").innerHTML = "總共需要" + day + "天又" + (now - 9) + "個小時" + last + "分鐘";

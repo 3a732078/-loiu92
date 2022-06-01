@@ -155,24 +155,24 @@
 
         <h1>第五題</h1>
         <p>計算時間內有幾個工人</p>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"> 請輸入查詢的時間 </span>
-            <input id = "time" placeholder = "ex: 15:31"type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-            <button type="button" class="btn btn-secondary" onclick="TC(time.value)">
-                <img style = "width: 25px;"src="https://img.icons8.com/stickers/100/undefined/search.png"/>
-            </button>
-        </div>
-
+        <button type="button" class="btn btn-secondary" onclick= "inputTime()">
+            <img style = "width: 25px;"src="https://img.icons8.com/stickers/100/undefined/search.png"/>
+        </button>        
         <span id="answer5"></span>
 
 
         <h1>第六題</h1>
         <p>計算完成任務的時間</p>
+
+        <button type="button" class="btn btn-secondary" onclick= "tasksD()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator-fill" viewBox="0 0 16 16">
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
+              </svg>
+        </button> 
         <p id="answer7"></p>
 
 
 
-        <script>tasksD();</script>
 
         <script >
             showData();
