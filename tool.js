@@ -172,3 +172,23 @@ function IO(){
     });
     
 }
+
+// 第四題 
+function sumTime(){
+    let s4 = document.getElementById("S4");
+    let index = s4.selectedIndex;
+    let type = s4.options[index].value;
+    let sum = 0;
+    employeeType.forEach(item =>{
+        let end = parseInt(item.work_end.substring(0,2));
+        if (end == 0 )
+            end = 24;  
+        // console.log(end);              
+        let day =  end - parseInt(item.work_begin.substring(0,2)) ;
+        sum += day;
+        if(item.name == type){
+            document.getElementById("answer4").innerHTML = type + "的一天工作時數為:" + day ;
+        }
+    });
+    document.getElementById("sum").innerHTML = "總工作時數為:" + sum;
+}
