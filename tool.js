@@ -1,3 +1,4 @@
+//參數宣告
 const factories = [
     { name: "BR1", employees: ["John", "Alice", "Bob", "Jessie", "Karen"] },
     { name: "BR2", employees: ["Jessie", "Karen", "John"] },
@@ -39,9 +40,7 @@ const employeeType = [
     {id: "3", name: "HalfTime", work_begin: "20:00:00", work_end: "00:00:00"},
 ];
 
-
-
-
+//顯示資料
 function showData() {
     factories.forEach((item , index) => {
         let row = document.createElement('tr');
@@ -74,7 +73,7 @@ function showData() {
     });
 
 
-    employeeType.forEach((item , index) => {
+    employees.forEach((item , index) => {
         let row = document.createElement('tr');
         let data_1 = document.createElement('td');
         data_1.innerHTML = item.id;
@@ -106,6 +105,8 @@ function showData() {
 
 
 }
+
+
 
 //這裡是第一題使用的函式
 function countEmployee(){
