@@ -43,7 +43,6 @@ const employeeType = [
 
 
 function showData() {
-    console.log('test');
     factories.forEach((item , index) => {
         let row = document.createElement('tr');
         let data_1 = document.createElement('td');
@@ -106,4 +105,24 @@ function showData() {
     });
 
 
+}
+
+function countEmployee(){
+    // console.log('test');
+    let S2 = document.getElementById("S2");
+    let index = S2.selectedIndex;
+    let name = S2.options[index].value;
+    let count = 0;
+
+    factories.forEach(items => {
+        items.employees.forEach(item => {
+            // console.log(item);
+            if(item == name)
+                count++;
+        });
+        
+    });
+
+
+    document.getElementById("answer2").innerHTML = "這個員工去過" + count + "個工廠";
 }
