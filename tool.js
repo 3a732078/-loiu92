@@ -192,3 +192,29 @@ function sumTime(){
     });
     document.getElementById("sum").innerHTML = "總工作時數為:" + sum;
 }
+
+
+// 第五題
+function TC(){
+    let time = parseInt(document.getElementById("time").value.substring(0,2));
+    let count = 0;
+    let worker = "";
+    employeeType.forEach(item =>{
+        let begin = parseInt(item.work_begin.substring(0,2));
+        let end = parseInt(item.work_end.substring(0,2));
+        if (end == 0 )
+            end = 24;  
+        // console.log(time);    
+        if(time >= begin && time < end  ){
+            employees.forEach(employee => {
+                if(employee.type == item.id){
+                    count++;
+                    worker += employee.name + "、";
+                }                
+            });            
+        }
+        
+    });
+    document.getElementById("answer5").innerHTML = "這個時間有" + count + "個員工在工作: " + worker;
+
+}
