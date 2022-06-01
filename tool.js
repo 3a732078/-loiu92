@@ -195,8 +195,8 @@ function sumTime(){
 
 
 // 第五題
-function TC(){
-    let time = parseInt(document.getElementById("time").value.substring(0,2));
+function TC(time){
+    // let time = parseInt(document.getElementById("time").value.substring(0,2));
     let count = 0;
     let worker = "";
     employeeType.forEach(item =>{
@@ -216,5 +216,40 @@ function TC(){
         
     });
     document.getElementById("answer5").innerHTML = "這個時間有" + count + "個員工在工作: " + worker;
+    return count;
+}
+
+
+//第六題
+function tasksD(){
+    let day = 0;   
+    let now = 10;
+
+    tasks.forEach(task => {
+        let taskD = task.duration;
+        last = 0;
+        while(taskD > 0){
+            if(last > 0 ){
+                taskD -= last;   
+                last = 0;
+            }
+            taskD -= TC(now) * 60;
+            // console.log(now);
+            
+            if(taskD < 0){
+                last = Math.abs(taskD);
+            }
+            now ++;           
+            if (now > 23){
+                now = 10;
+                day ++;
+            }
+        }
+
+    });
+    now += last / 60;
+    last %= 60;
+    // console.log(day);
+    document.getElementById("answer7").innerHTML = "總共需要" + day + "天又" + (now - 9) + "個小時" + last + "分鐘";
 
 }
