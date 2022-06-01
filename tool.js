@@ -109,6 +109,22 @@ function showData() {
 
 function countEmployee(){
     // console.log('test');
+    let S1 = document.getElementById("S1");
+    let index = S1.selectedIndex;
+    let name = S1.options[index].value;
+    let count = 0;
+
+    factories.forEach(items => {
+        if (items.name == name)
+            count = items.employees.length;
+        
+    });
+
+    document.getElementById("answer1").innerHTML = "這個工廠有" + count + "個員工";
+}
+
+function countFactory(){
+    // console.log('test');
     let S2 = document.getElementById("S2");
     let index = S2.selectedIndex;
     let name = S2.options[index].value;
