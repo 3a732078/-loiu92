@@ -107,6 +107,7 @@ function showData() {
 
 }
 
+//這裡是第一題使用的函式
 function countEmployee(){
     // console.log('test');
     let S1 = document.getElementById("S1");
@@ -123,6 +124,7 @@ function countEmployee(){
     document.getElementById("answer1").innerHTML = "這個工廠有" + count + "個員工";
 }
 
+//這裡是第二題使用的函式
 function countFactory(){
     // console.log('test');
     let S2 = document.getElementById("S2");
@@ -141,4 +143,32 @@ function countFactory(){
 
 
     document.getElementById("answer2").innerHTML = "這個員工去過" + count + "個工廠";
+}
+
+//這裡是第三題使用的函式
+function DO(){
+    factories.forEach(items=>{
+        items.employees.sort();
+    });
+
+    factories.forEach(items => {
+        let row = document.createElement("p")
+        row.innerText =  items.name + ":" + items.employees ;
+        document.getElementById("answer3").appendChild(row);
+    });
+    
+}
+
+function IO(){
+    factories.forEach(items=>{
+        items.employees.sort();
+        items.employees.reverse();
+    });
+
+    factories.forEach(items => {
+        let row = document.createElement("p")
+        row.innerText =  items.name + ":" + items.employees ;
+        document.getElementById("answer3").appendChild(row);
+    });
+    
 }
