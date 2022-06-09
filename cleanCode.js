@@ -44,6 +44,26 @@ console.log("===第二題===");
 countFactory();
 console.log("===第三題===");
 list();
+console.log("===第四題===");
+totalHours();
+
+function totalHours(){
+    let tHour = 0;
+    let tMinute = 0;
+    let tSeconds = 0;
+    employeeType.forEach(element => {
+        let hour = parseInt(element.work_end.substring(0,2)) - parseInt(element.work_begin.substring(0,2));
+        let minute = parseInt(element.work_end.substring(3,5)) - parseInt(element.work_begin.substring(3,5));
+        let seconds = parseInt(element.work_end.substring(6,8)) - parseInt(element.work_begin.substring(6,8));
+        if(hour < 0)hour = 24 + hour;
+        if(minute < 0)minute = 24 + minute;
+        if(seconds < 0)seconds = 24 + seconds;
+        tHour += hour;
+        tMinute += minute;
+        tSeconds += seconds;
+    });
+    console.log("一天總工作時間為"+tHour.toString()+":"+tMinute.toString()+":"+tSeconds.toString()+"");
+}
 
 function list(){
     factories.forEach(element => {
