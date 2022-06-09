@@ -42,6 +42,14 @@ console.log("===第一題===");
 countEmployee();
 console.log("===第二題===");
 countFactory();
+console.log("===第三題===");
+list();
+
+function list(){
+    factories.forEach(element => {
+        console.log("name" + element.name + ",employees:" + element.employees.sort());
+    });
+}
 
 function countFactory(){
     let flag = [];
