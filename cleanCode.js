@@ -38,6 +38,9 @@ const tasks = [
     {id: 14, title: "task14", duration: 480},
     {id: 15, title: "task15", duration: 900}
 ];
+
+//main 
+
 console.log("===第一題===");
 countEmployee();
 console.log("===第二題===");
@@ -46,6 +49,36 @@ console.log("===第三題===");
 list();
 console.log("===第四題===");
 totalHours();
+console.log("===第五題===");
+let time = prompt("測試第五題:請輸入時間(EX:21:03:35)") ;
+if(time == ""){
+    alert("沒有輸入值，預設為21:03:35");
+    time = "21:03:35";
+}
+let countWorker = howManyEmployeeByTime(time);
+console.log("有"+countWorker+"個員工在"+time+"時工作");
+
+
+//以下function
+function howManyEmployeeByTime(time){
+    let count = 0;
+    let timeInt = time.substring(0,2);
+    employeeType.forEach(element => {
+        let end = parseInt(element.work_end.substring(0,2));
+        if(end < 6) end += 24;//調整半夜出現的情況
+        if(timeInt < 6 )timeInt += 24;
+        if(parseInt(element.work_begin.substring(0,2))<=timeInt&&end>timeInt){
+            employees.forEach(employee => {
+                if(element.id==employee.type){
+                    count++;
+                }
+            });
+        }
+    });
+
+
+    return count ;
+}
 
 function totalHours(){
     let tHour = 0;
