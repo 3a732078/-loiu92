@@ -58,8 +58,40 @@ if(time == ""){
 let countWorker = howManyEmployeeByTime(time);
 console.log("有"+countWorker+"個員工在"+time+"時工作");
 
+console.log("===第六題===");
+tasksDuration();
+
 
 //以下function
+
+function tasksDuration(){
+    let day = 1;
+    let start = 10;
+    const end = 24;
+    let over = 0;
+    tasks.forEach(element => {
+        let taskTime = element.duration;
+        while(taskTime > 0){
+            if(over>0){
+                taskTime -= over;
+                over = 0;
+            }
+            taskTime -= howManyEmployeeByTime(start.toString())*60;
+            start ++ ;
+            if(start == end ){
+                start = 10;
+                day++;
+            }
+            if(taskTime<0)over+=Math.abs(taskTime);   
+        }   
+     
+    });
+    let minute = 60 - over;
+    let hour = start - 1;
+    day += Math.floor(hour/20);
+    hour %= 20;
+    console.log("總共花"+day+"天"+hour+"小時"+minute+"分鐘");
+}
 function howManyEmployeeByTime(time){
     let count = 0;
     let timeInt = time.substring(0,2);
